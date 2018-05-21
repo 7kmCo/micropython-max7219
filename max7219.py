@@ -11,19 +11,8 @@ _SCANLIMIT = const(11)
 _SHUTDOWN = const(12)
 _DISPLAYTEST = const(15)
 
-class Matrix8x8:
+class Max7219:
     def __init__(self, spi, cs, num):
-        """
-        Driver for cascading MAX7219 8x8 LED matrices.
-
-        >>> import max7219
-        >>> from machine import Pin, SPI
-        >>> spi = SPI(1)
-        >>> display = max7219.Matrix8x8(spi, Pin('X5'), 4)
-        >>> display.text('1234',0,0,1)
-        >>> display.show()
-
-        """
         self.spi = spi
         self.cs = cs
         self.cs.init(cs.OUT, True)
