@@ -27,3 +27,14 @@ class Matrix:
         self.text(txt, 8 - i)
         sleep(s)
       sleep(s)
+
+  # Draw a shape. all this needs is to set shape pattern.
+  # For example [[0,0,0,0,0,0,0,0], [0,1,1,0,0,1,1,0], [1,0,0,1,1,0,0,1], [1,0,0,0,0,0,0,1], [1,0,0,0,0,0,0,1], [0,1,0,0,0,0,1,0], [0,0,1,0,0,1,0,0], [0,0,0,1,1,0,0,0]] will display a heart
+  def shape(self, patern = [], delay = 0):
+    self.display.fill(0)
+    for li, l in enumerate(patern):
+      for di, d in enumerate(l):
+        if d == 1:
+          sleep(delay)
+          self.display.pixel(int(di), int(li), 1)
+          self.display.show()
