@@ -15,3 +15,15 @@ class Matrix:
     self.display.fill(0)
     self.display.text(txt, x, y, c)
     self.display.show()
+
+  # Scrolling text. I was not able to make official scroll method work,
+  # also on the website they warn "This may leave a footprint of the previous colors in the FrameBuffer."
+  # So I wrote this simple method which speed is adjustable.
+  # For now, I'm waiting for my other led matrixes to arrive, then I can test further and add more options like scroll direction and etc.
+  def scroll(self, txt, s = 0.5, c = 1):
+    text_len = len(txt) * 8 + 8
+    while True:
+      for i in range(text_len):
+        self.text(txt, 8 - i)
+        sleep(s)
+      sleep(s)
