@@ -7,17 +7,30 @@ A MicroPython library for the MAX7219 8x8 LED matrix driver, SPI interface, supp
 
 ```
 import matrix
-
 matrix = matrix.Matrix()
-matrix.text('F')
 ```
 
 At the moment, only three methods (text, scroll and shape) added to the `Matrix` class whitch samples can be found in `/examples` directory, more will be added later. Fill free to make suggestions, pull requests are wellcome.
 
-Or you can totally ignore `Matrix` class and write your own code by using the Max7219 class. You can find more under [examples] (https://github.com/7kmCo/micropython-max7219/tree/master/examples) directory.
+```matrix.text(txt = 'F', x = 0, y = 0, c = 1)```
+
+which x is horizontal offset default is zero, y is vertical offset default is zero and c is color default is 1.
+
+```matrix.scroll(txt = 'Scrolling text example', s = 0.1, c = 1)```
+
+which x, y and c as aboce and s is speed of scrolling default is 0.1 second.
+
+```
+shape = [[0,0,0,0,0,0,0,0], [0,1,1,0,0,1,1,0], [1,0,0,1,1,0,0,1], [1,0,0,0,0,0,0,1], [1,0,0,0,0,0,0,1], [0,1,0,0,0,0,1,0], [0,0,1,0,0,1,0,0], [0,0,0,1,1,0,0,0]]
+matrix.shape(patern = shape, delay = 0)
+```
+
+which shape is an array of values zero or one values for each pixel. the aboce shape, will display a heart. 
+
+The default value for delay (not the best name, but this was the best I found!) is zero. If zero, it just display the shape, but if is set to some values, led matrix will start to display the shape one pixel (In our case, one led) at a time by the interval amount set for delay variable.
+
 
 ## Connections
-
 
 ### Connections for ESP8266 or ESP32, The pins can be changed while initiating the class.
 
