@@ -3,6 +3,18 @@
 A MicroPython library for the MAX7219 8x8 LED matrix driver, SPI interface, supports cascading and uses [framebuf](http://docs.micropython.org/en/latest/pyboard/library/framebuf.html)
 
 
+## How to use
+
+```
+import matrix
+
+matrix = matrix.Matrix()
+matrix.text('F')
+```
+
+At the moment, only three methods added to the `Matrix` class whitch samples can be found in `/examples` directory, more will be added later. Fill free to make suggestions, pull requests are wellcome.
+
+
 ## ESP32 Examples
 
 ```
@@ -99,14 +111,8 @@ display.show()
 
 ## Connections
 
-PyBoard | max7219 8x8 LED Matrix
-------- | ----------------------
-VIN     | VCC
-GND     | GND
-X8 MOSI | DIN
-X5 CS   | CS
-X6 SCK  | CLK
 
+### Connections for ESP8266 or ESP32, The pins can be changed while initiating the class.
 
 Wemos D1 Mini    | max7219 8x8 LED Matrix
 ---------------- | ----------------------
@@ -115,6 +121,16 @@ GND              | GND
 D7 MOSI (GPIO13) | DIN
 D8 CS (GPIO15)   | CS
 D5 SCK (GPIO14)  | CLK
+
+### For pyBoard
+
+PyBoard | max7219 8x8 LED Matrix
+------- | ----------------------
+VIN     | VCC
+GND     | GND
+X8 MOSI | DIN
+X5 CS   | CS
+X6 SCK  | CLK
 
 ## Links
 
