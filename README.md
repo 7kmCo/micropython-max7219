@@ -5,8 +5,6 @@ A MicroPython library for the MAX7219 8x8 LED matrix driver, SPI interface, supp
 
 ## ESP32 Examples
 
-Default baud rate of 80Mhz was introducing errors, dropped from 10Mhz and it works consistently.
-
 ```
 import max7219
 from machine import Pin, SPI
