@@ -28,7 +28,7 @@ shape = [[0,0,0,0,0,0,0,0], [0,1,1,0,0,1,1,0], [1,0,0,1,1,0,0,1], [1,0,0,0,0,0,0
 matrix.shape(shape)
 ```
 
-Or you can totally ignore `Matrix` class and write your own code by using the Max7219 class. You can find more under [examples] (https://github.com/7kmCo/micropython-max7219/tree/master/examples) directory.
+Or you can totally ignore `Matrix` class and write your own code by using the Max7219 class. 
 
 
 ## ESP32 Examples

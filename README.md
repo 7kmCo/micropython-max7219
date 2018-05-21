@@ -30,6 +30,10 @@ which shape is an array of values zero or one values for each pixel. the aboce s
 The default value for delay (not the best name, but this was the best I found!) is zero. If zero, it just display the shape, but if is set to some values, led matrix will start to display the shape one pixel (In our case, one led) at a time by the interval amount set for delay variable.
 
 
+You can find more examples under [examples](https://github.com/7kmCo/micropython-max7219/tree/master/examples) directory.
+
+
+
 ## Connections
 
 ### Connections for ESP8266 or ESP32, The pins can be changed while initiating the class.
