@@ -2,6 +2,38 @@
 
 A MicroPython library for the MAX7219 8x8 LED matrix driver, SPI interface, supports cascading and uses [framebuf](http://docs.micropython.org/en/latest/pyboard/library/framebuf.html)
 
+
+## ESP32 Examples
+
+Default baud rate of 80Mhz was introducing errors, dropped from 10Mhz and it works consistently.
+
+```
+import max7219
+from machine import Pin, SPI
+# Here the default pins for mosi and sck can be overritten.
+spi = SPI(1, baudrate=14500000, sck=Pin(14), mosi=Pin(13))
+display = max7219.Matrix8x8(spi, Pin(15), 4)
+display.brightness(0)
+display.fill(0)
+display.text('1234',0,0,1)
+display.show()
+```
+
+## ESP8266 Examples
+
+Default baud rate of 80Mhz was introducing errors, dropped from 10Mhz and it works consistently.
+
+```
+import max7219
+from machine import Pin, SPI
+spi = SPI(1, baudrate=10000000, polarity=0, phase=0)
+display = max7219.Matrix8x8(spi, Pin(15), 4)
+display.brightness(0)
+display.fill(0)
+display.text('1234',0,0,1)
+display.show()
+```
+
 ## PyBoard Examples
 
 **Single 8x8 LED Matrix**
@@ -67,21 +99,6 @@ display.scroll(-8,0) # 34567888
 display.show()
 ```
 
-## ESP8266 Examples
-
-Default baud rate of 80Mhz was introducing errors, dropped from 10Mhz and it works consistently.
-
-```
-import max7219
-from machine import Pin, SPI
-spi = SPI(1, baudrate=10000000, polarity=0, phase=0)
-display = max7219.Matrix8x8(spi, Pin(15), 4)
-display.brightness(0)
-display.fill(0)
-display.text('1234',0,0,1)
-display.show()
-```
-
 ## Connections
 
 PyBoard | max7219 8x8 LED Matrix
@@ -91,6 +108,7 @@ GND     | GND
 X8 MOSI | DIN
 X5 CS   | CS
 X6 SCK  | CLK
+
 
 Wemos D1 Mini    | max7219 8x8 LED Matrix
 ---------------- | ----------------------
@@ -102,6 +120,7 @@ D5 SCK (GPIO14)  | CLK
 
 ## Links
 
+* Forked from [mcauser/micropython-max7219](https://github.com/mcauser/micropython-max7219)
 * Based on [deshipu's max7219.py](https://bitbucket.org/thesheep/micropython-max7219/src)
 * [micropython.org](http://micropython.org)
 * [Docs on framebuf](http://docs.micropython.org/en/latest/pyboard/library/framebuf.html)
