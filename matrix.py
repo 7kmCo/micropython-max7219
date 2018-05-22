@@ -20,13 +20,20 @@ class Matrix:
   # also on the website they warn "This may leave a footprint of the previous colors in the FrameBuffer."
   # So I wrote this simple method which speed is adjustable.
   # For now, I'm waiting for my other led matrixes to arrive, then I can test further and add more options like scroll direction and etc.
-  def scroll(self, txt, s = 0.5, c = 1):
+  def scroll(self, txt, s = 0.5, c = 1, loops = 0):
     text_len = len(txt) * 8 + 8
+    counter = 1
     while True:
       for i in range(text_len):
         self.text(txt, 8 - i)
         sleep(s)
-      sleep(s)
+      if loops != 0:
+        if counter >= loops:
+          break
+        counter += 1
+      else:
+        sleep(s)
+
 
   # Draw a shape. all this needs is to set shape pattern.
   # For example [[0,0,0,0,0,0,0,0], [0,1,1,0,0,1,1,0], [1,0,0,1,1,0,0,1], [1,0,0,0,0,0,0,1], [1,0,0,0,0,0,0,1], [0,1,0,0,0,0,1,0], [0,0,1,0,0,1,0,0], [0,0,0,1,1,0,0,0]] will display a heart
