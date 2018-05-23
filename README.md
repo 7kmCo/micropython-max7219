@@ -16,9 +16,9 @@ At the moment, only three methods (text, scroll and shape) added to the `Matrix`
 
 which x is horizontal offset default is zero, y is vertical offset default is zero and c is color default is 1.
 
-```matrix.scroll(txt = 'Scrolling text example', s = 0.1, c = 1)```
+```matrix.scroll(txt = 'Scrolling text example', s = 0.1, c = 1, loops = 2)```
 
-which x, y and c as aboce and s is speed of scrolling default is 0.1 second.
+which x, y and c as above, s is speed of scrolling default is 0.1 second and loops is the number of times one text can be scrolled. Default is zero which means unlimited.
 
 ```
 shape = [[0,0,0,0,0,0,0,0], [0,1,1,0,0,1,1,0], [1,0,0,1,1,0,0,1], [1,0,0,0,0,0,0,1], [1,0,0,0,0,0,0,1], [0,1,0,0,0,0,1,0], [0,0,1,0,0,1,0,0], [0,0,0,1,1,0,0,0]]
